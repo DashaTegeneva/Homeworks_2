@@ -1,0 +1,26 @@
+#include <stdio.h>
+int TryParse (char ch[]; bool &success)
+{
+ success=true;
+ int result=0;
+
+ for (int i=0; i<5 && success; i++)
+ {
+  success=((int) ch[]>=(int)'0' && (int) ch[]<=(int)'9');
+ 
+  if (success)
+   {
+    result +=(int)ch[]-(int)'0';
+    result*=10;
+   }
+ }
+ return success ? result/10:=-1;
+}
+
+int main() 
+{ 
+  char a[5];
+  scanf ("%s", a);
+  printf ("%d", TryParse(a));
+  printf ("%b", success);
+ }
