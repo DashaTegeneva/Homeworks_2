@@ -1,0 +1,56 @@
+#include <stdio.h>
+
+struct Rational {
+    int a;
+    int b;
+};
+
+void print(struct Rational arr[100], int size) 
+{
+    int i;
+    printf("%d/%d", arr[0].a, arr[0].b);
+    for (i = 1; i < size; i++) {
+        printf(", %d/%d", arr[i].a, arr[i].b); 
+ }
+}
+
+void runFarey(int n;int &size) 
+{
+    struct Rational arr[100];
+    arr[0].a = 0;
+    arr[0].b = 1;
+    arr[1].a = 1;
+    arr[1].b = 1;
+    int j;
+    size= 2;
+    for (j = 0; j <= n; j++)
+ {
+        int i = 0;
+        while (i < size - 1) 
+{
+            if (arr[i].b + arr[i + 1].b == j)
+ {
+                int p;
+                for (p = size + 1; p > i + 1; p--) 
+{
+                    arr[p] = arr[p - 1];
+                }
+                arr[i + 1].a = arr[i].a + arr[i + 2].a;
+                arr[i + 1].b = arr[i].b + arr[i + 2].b;
+                i++;
+                size++;
+            }
+            i++;
+        }
+    }
+    print(arr, size);
+    return;
+}
+
+int main() {
+    int n;
+    scanf("%d", &n);
+    printf("\n");
+    runFarey(n, size);
+    return 0;
+}
