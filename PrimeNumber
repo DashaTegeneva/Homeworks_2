@@ -1,0 +1,23 @@
+bool IsPrime(int a);
+{
+ IsPrime =true;
+ int i=2;
+
+ while ((!IsPrime) && (i<a))
+ {
+  if (a%i==0)
+  {
+   IsPrime=false;
+  } else
+    i++;
+ }
+} return IsPrime;
+}
+
+int main()
+
+{ 
+ bool p=IsPrime (a);
+}
+ 
+   
